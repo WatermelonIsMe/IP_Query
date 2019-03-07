@@ -1,0 +1,324 @@
+body {
+	font-family: '微软雅黑';
+	font-size: 14px;
+	line-height: 28px;	/* 段落中的行间距为28px */			
+	overflow-y: scroll;	/* 裁剪内容 - 提供滚动机制 */				
+	position: relative;	/* 生成相对定位的元素，相对于其正常位置进行定位 */
+	color: #333333;
+	background-color: #ffffff;
+	margin: 0;			/* 设置所有外边距属性 */
+}
+
+.color-border{
+	height: 10px;
+	width: 100%;
+}
+
+.leftBorder{
+	float: left;
+	width: calc(50% - 90px);
+	background: #3f848c;
+	height: 10px;
+}
+
+.rightBorder{
+	float: right;
+	width: calc(50% - -90px);
+	background: #6fa3a9;
+	height: 10px;
+}
+
+.header{
+	border-bottom: 1px solid #d8d8d8;
+}
+
+h1{
+	font-family: "微软雅黑";
+	font-size: 32px;
+	line-height: 36px;
+	color: #2d4d62;
+	padding: 0;
+	margin: 0 0 25px 0;
+}
+
+.navigation {
+	width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+ul{
+	list-style-type: none;/* 无标记 */
+	margin: 0;
+	padding: 0;/* 设置所有内边距属性 */
+	overflow: hidden;/* 内容会被修剪，并且其余内容是不可见的 */
+	background-color: #ffffff;
+}
+
+li{
+	float: left;
+}
+
+li a,.dropbtn1{
+	display: inline-block;/* 行内块元素 */
+	color: #2d4d62;
+	text-align: center;/* 把文本排列到中间 */
+	padding: 25px 60px 25px;
+	font-size: 22px;
+	text-decoration: none;/* 定义标准的文本 */
+}
+
+.dropdown1{
+	display:inline-block;
+}
+
+.dropdown-content1{
+	display:none;/* 此元素不会被显示 */
+	position:absolute;/* 生成绝对定位的元素 */
+	background-color:#f9f9f9;
+	min-width:160px;/* 设置元素的最小宽度 */
+	box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);/* 向框添加阴影 */
+}
+
+.dropdown-content1 a{
+	color:#2d4d62;
+	padding:12px 30px;
+	font-size: 18px;
+	text-decoration:none;
+	display:block;/* 此元素将显示为块级元素，此元素前后会带有换行符 */
+}
+
+.dropdown-content1 a:hover {
+	background-color: #f1f1f1
+}
+  
+.dropdown1:hover .dropdown-content1{
+	display:block;
+}
+
+li a:hover, .dropbtn1:hover,.dropdown1:hover,.about:hover{
+	background-color: #3f848c;
+	/* border-bottom: 10px solid #3f848c; */
+}
+
+.content{
+	display:block;
+	background-color: #f1f6f7;
+}
+
+.container,.inner{
+	width: 1200px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.row{
+	clear: both;
+/* 	margin-left: -15px;
+	margin-right: -15px; */
+}
+
+.rootlineNav{
+	margin: 20px 0 21px;
+	padding: 0;
+}
+
+.rootlineNav a{
+	position: relative;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	line-height: 23px;
+	display: inline-block;
+	color: #2d4d62;
+	text-decoration: none;
+}
+
+.clearfix:before,.container:before,.container:after,.row:before,.row:after{
+	content: " ";
+	display: table;
+}
+
+header,section{
+	display: block;
+}
+
+.container:after{
+	clear: both;
+}
+
+.mainContent{
+	padding-top: 65px;
+	background-color: #ffffff;
+	padding-bottom: 155px;
+}
+
+.contentElement{
+	margin-bottom: 55px;
+}
+
+.tx-indexedsearch .searchForm{
+	margin-bottom: 30px;
+}
+
+.defaultForm .form-group input[type="text"]{
+	width: 460px;
+}
+
+fieldset{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	min-width: 0;
+}
+
+legend{
+	display: none;
+	width: 100%;
+	padding: 0;
+	margin-bottom: 20px;
+	font-size: 21px;
+	line-height: inherit;
+	color: #333333;
+	border: 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.defaultForm .form-group{
+	margin-bottom: 12px;
+}
+
+.tx-indexedsearch .searchForm .tx-indexedsearch-form{
+	display: inline-block;
+}
+
+.defaultForm .form-control{
+	font-family: "微软雅黑";
+	font-size: 17px;
+	line-height: 18px;
+	color: #2d4d62;
+	background-color: #ffffff;
+	border: 1px solid #91bfc5;
+	box-shadow: none;
+	border-radius: 0px;
+}
+
+.form-control{
+	height: 34px;
+}
+
+input{
+	font: inherit;
+	margin: 0;
+}
+
+.defaultForm .btn{
+	border-radius: 0;/* 为元素添加圆角边框 */
+}
+
+button{
+	/* -webkit-appearance: button; */
+	cursor: pointer;	/* 光标呈现为指示链接的指针（一只手） */
+}
+
+.ipSearchButton{
+	color: white;
+	font-size: 17px;
+	line-height: 18px;
+	font-weight: normal;
+	text-decoration: none;
+	background-color: #3f848c;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+	margin-top: 15px;
+}
+
+.btn{
+	display: inline-block;
+	margin-bottom: 0;
+	text-align: center;
+	vertical-align: middle;
+	touch-action: manipulation;/* 浏览器只允许进行滚动和持续缩放操作 */
+	border: 1px solid transparent;
+	white-space: nowrap;/* 空白会被浏览器忽略 */
+	padding: 6px 12px;
+	/* -webkit-user-select: none; */
+	align-items: flex-start;
+}
+
+table{
+	display: table;
+	margin-bottom: 20px;
+	width: 100%;
+	border-collapse: collapse;/* 边框会合并为一个单一的边框 */
+	border-spacing: 0;
+	background-color: transparent;
+}
+
+tbody{
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+th{
+	/* width: 20%; */
+	font-size: 16px;
+	/*text-align: left;*/
+	/*padding-left: 15px;*/
+	height: 50px;
+	background-color: #3f848c;
+	color: #fff;
+	font-weight: normal;
+	border-right: 1px solid #dcdcdc;
+}
+
+.th1{
+	text-align: left;
+}
+
+tr:nth-child(odd) td{
+	background: #f1f6f7;
+}
+
+tr td:first-child{
+	font-size: 14px;
+	text-align: left;
+	width: 180px;
+	color: #333333;
+	border-right: 1px solid #dcdcdc;
+}
+
+td{
+	/*border-right: 1px solid #dcdcdc;*/
+	height: 40px;
+	min-height: 40px;
+	width: 150px;
+	text-align: center;
+	min-height: 40px;
+}
+
+td a:last-of-type{
+	display: inline-block;
+	margin: 5px 5px 5px 5px;
+	height: 36px;
+	line-height: 36px;
+	font-size: 14px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+th,td{
+	padding: 0 0 0 15px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+
