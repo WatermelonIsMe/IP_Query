@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ipSearch</title>
+	<!-- <link rel="stylesheet" type="text/css" href="ip.css"> -->
+	<link href='{{url_for("static",filename="ip.css")}}' rel="stylesheet">
+	<script>
+		// function getEnter(){
+		//  	if(event.keyCode == 13){
+		//  		event.returnValue=false;
+		//  		document.getElementById('tx-indexedsearch-searchbox-button-submit').click();
+		//  	}
+		// }
+
+		function submitclick() {
+			var inputValue = document.getElementById('tx-insearched-searchbox-sword')
+			var ip = /^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])$/;
+			if(ip.test(inputValue.value)){
+				console.log(typeof inputValue.value)
+				var postData = {"ip":inputValue.value}
+				var http = new XMLHttpRequest();
+				http.open("GET", "/query?ip="+inputValue.value, false);
+				http.send();
+				console.log(http.responseText)
+				var val = JSON.parse(http.responseText);
+				var cod = val.code;
+				if (cod==200){
+				}else if(cod==404){
+					document.getElementById('ipList').style.display = "none";
+					alert("未查询到该IP地址");
+				}else if(cod!=200){
+					document.getElementById('ipList').style.display = "none";
+				}
+				document.getElementById('City').innerText = val.data.city;
+				document.getElementById('Longitude').innerText = val.data.Longitude;
+				document.getElementById('Latitude').innerText = val.data.Latitude;
+				document.getElementById('keywords').innerText = val.data.keywords;
+			}else{
+				alert('输入非法');
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<header class="header">
+			<div class="color-border">
+				<div class="leftBorder"></div>
+				<div class="rightBorder"></div>
+			</div>
+			<div class="navigation">
+				<nav>
+					<ul>
+						<li><a href="">查询</a></li>
+						<!-- <div class="dropdown1">
+							<a href="ipquery-2.html" class="dropbtn1">查询</a>
+							<div class="dropdown-content1">
+								<a href="ipquery-2.html" target="_self">ip&nbsp;查询</a>
+							</div>
+						</div> -->
+						<li style="float: right;"><a href="#about" class="about">关于</a></li>
+					</ul>
+				</nav>
+		</div>
+		</header><!-- /header -->
+		<main class="main">
+			<section class="content rootlineNavContainer">
+				<div class="container">
+					<div class="row">
+						<div class="rootlineNav">
+							<p>IP&nbsp;查询</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="content mainContent">
+				<div class="container content-container">
+					<div class="row">
+						<div class="contentElement clearfix">
+							<header class="contentHeader">
+								<h1 class="firstHeader">IP查询</h1>
+							</header>
+							<div class="tx-indexedsearch">
+								<div class="tx-indexedsearch-searchbox searchbox-tmpl-css">
+									<fieldset class="defaultForm searchForm">
+										<legend>IP</legend>
+										<div class="tx-indexedsearch-form formRow form-group">
+											<input type="text" placeholder="请输入ip地址" id="tx-insearched-searchbox-sword" class="text tx-indexedsearch-searchbox-sword sword form-control" onkeydown="getEnter()"  /><br />
+											<button type="submit" onclick="submitclick()" id="tx-indexedsearch-searchbox-button-submit" class="tx-indexedsearch-searchbox-button submit btn ipSearchButton" />查询</button>
+										</div>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="inner" id="ipList" style="display:none;">
+					<table id="table">
+						<caption><h2 class="titH2">IP数据信息</h2></caption>
+						<tbody>
+							<tr>
+								<th class="th1" "width: 20%;">数据</th>
+								<th colspan="6">
+									<span style=" margin-left: -200px;">城市级信息</span>
+								</th>
+							</tr>
+							<tr>
+								<td>City</td>
+								<td colspan="6" style="clear: both;">
+									<span style="display: inline-block;text-align: center;width: 360px;float: left;margin-left: 200px;">
+										<a style="background: none;color: #0A246A;width: auto;" id="City"></a>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>keywords</td>
+								<td colspan="6" style="clear: both">
+									<span style="display: inline-block;text-align: center;width:360px;float: left;margin-left: 200px;">
+										<a style="background: none;color: #0A246A;width: auto;" id="keywords"></a>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Longitude</td>
+								<td colspan="6" style="clear: both;">
+									<span style="display: inline-block;text-align: center;width: 360px;float: left;margin-left: 200px;">
+										<a style="background: none;color: #0A246A;width: auto;" id="Longitude"></a>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Latitude</td>
+								<td colspan="6" style="clear: both;" >
+									<span style="display: inline-block;text-align: center;width: 360px;float: left;margin-left: 200px;">
+										<a style="background: none;color: #0A246A;width: auto;" id="Latitude"></a>
+									</span>
+								</td>
+							</tr>
+							
+						</tbody>
+					</table>
+					
+				</div>
+				
+			</section>
+		</main>
+		
+	</div>
+</body>
+</html>

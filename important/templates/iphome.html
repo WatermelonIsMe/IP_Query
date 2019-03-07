@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>home</title>
+<meta charset="UTF-8">
+<style type="text/css">
+body {
+	font-family: '微软雅黑';
+	font-size: 14px;
+	line-height: 28px;			
+	overflow-y: scroll;				
+	position: relative;	
+	color: #333333;
+	background-color: #ffffff;
+	margin: 0;
+}
+
+.color-border{
+	height: 10px;
+	width: 100%;
+}
+
+.leftBorder{
+	float: left;
+	width: calc(50% - 90px);
+	background: #3f848c;
+	height: 10px;
+}
+
+.rightBorder{
+	float: right;
+	width: calc(50% - -90px);
+	background: #6fa3a9;
+	height: 10px;
+}
+
+.header{
+	border-bottom: 1px solid #d8d8d8;
+}
+
+.navigation {
+	width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+ul{
+	list-style-type: none;/* 无标记 */
+	margin: 0;
+	padding: 0;/* 设置所有内边距属性 */
+	overflow: hidden;/* 内容会被修剪，并且其余内容是不可见的 */
+	background-color: #ffffff;
+}
+
+li{
+	float: left;
+}
+
+li a,.dropbtn1{
+	display: inline-block;/* 行内块元素 */
+	color: #2d4d62;
+	text-align: center;/* 把文本排列到中间 */
+	padding: 25px 60px 25px;
+	font-size: 22px;
+	text-decoration: none;/* 定义标准的文本 */
+}
+
+.dropdown1{
+	display:inline-block;
+}
+
+.dropdown-content1{
+	display:none;/* 此元素不会被显示 */
+	position:absolute;/* 生成绝对定位的元素 */
+	background-color:#f9f9f9;
+	min-width:160px;/* 设置元素的最小宽度 */
+	box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);/* 向框添加阴影 */
+}
+
+.dropdown-content1 a{
+	color:#2d4d62;
+	padding:12px 30px;
+	font-size: 18px;
+	text-decoration:none;
+	display:block;/* 此元素将显示为块级元素，此元素前后会带有换行符 */
+}
+
+.dropdown-content1 a:hover {
+	background-color: #f1f1f1
+}
+  
+.dropdown1:hover .dropdown-content1{
+	display:block;
+}
+
+li a:hover, .dropbtn1:hover,.dropdown1:hover,.about:hover{
+	background-color: #3f848c;
+	/* border-bottom: 10px solid #3f848c; */
+}
+
+    * {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      border: 0;
+    }
+
+    .all {
+      width: 800px;
+      height: 450px;
+      padding: 7px;
+      border: 1px solid #ccc;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    .screen {
+      width: 800px;
+      height: 450px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screen li {
+      width: 800px;
+      height: 450px;
+      overflow: hidden;
+      float: left;
+    }
+
+    .screen ul {
+      position: absolute;
+      left: 0;
+      top: 0px;
+      width: 3000px;
+    }
+
+    .all ol {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      line-height: 20px;
+      text-align: center;
+    }
+
+    .all ol li {
+      float: left;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .all ol li.current {
+      background: #DB192A;
+    }
+
+    #arr {
+      display: none;
+    }
+
+    #arr span {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      margin-top: -20px;
+      background: #000;
+      cursor: pointer;
+      line-height: 40px;
+      text-align: center;
+      font-weight: bold;
+      font-family: '黑体';
+      font-size: 30px;
+      color: #fff;
+      opacity: 0.3;
+      border: 1px solid #fff;
+    }
+
+    #arr #right {
+      right: 5px;
+      left: auto;
+    }
+  </style>
+</head>
+<body>
+	<header class="header">
+			<div class="color-border">
+				<div class="leftBorder"></div>
+				<div class="rightBorder"></div>
+			</div>
+			<div class="navigation">
+				<nav>
+					<ul>
+						<li><a href="iphome.html">主页</a></li>
+						<div class="dropdown1">
+							<a href="{{url_for("get_ip_info")}}" class="dropbtn1">查询</a>
+							<!--<div class="dropdown-content1">-->
+								<!--<a href="{{url_for("get_ip_info")}}">ip&nbsp;查询</a>-->
+							</div>
+						</div>
+						<li style="float: right;"><a href="#about" class="about">关于</a></li>
+					</ul>
+				</nav>
+		</div>
+		</header><!-- /header -->
+	<div class="all" id='box'>
+		<div class="screen"><!--相框-->
+			<ul>
+				<li><img src="YTO-1.jpg" width="800" height="450"/></li>
+				<li><img src="YTO-2.jpg" width="800" height="450"/></li>
+				<li><img src="YTO-3.jpg" width="800" height="450"/></li>
+				<li><img src="YTO-4.jpg" width="800" height="450"/></li>
+				<li><img src="YTO-5.jpg" width="800" height="450"/></li>
+			</ul>
+			<ol>
+			</ol>
+		</div>
+		<div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+	</div>
+	<script>
+		var box = document.getElementById("box");
+		var screen = box.children[0];
+		var imgWidth = screen.offsetWidth;
+		var ulObj = screen.children[0];
+		var list = ulObj.children;
+		var olObj = screen.children[1];
+		var arr = document.getElementById("arr");
+		var pic = 0;
+		for (var i = 0; i < list.length; i++) {
+			var liObj = document.createElement("li");
+			olObj.appendChild(liObj);
+			liObj.innerHTML = (i + 1);
+			liObj.setAttribute("index", i);
+			liObj.onmouseover = function () {
+				for (var j = 0; j < olObj.children.length; j++) {
+					olObj.children[j].removeAttribute("class");
+				}
+				this.className = "current";
+				pic = this.getAttribute("index");
+				animate(ulObj, -pic * imgWidth);
+			};
+		}
+		olObj.children[0].className = "current";
+		ulObj.appendChild(ulObj.children[0].cloneNode(true));
+		var timeId= setInterval(clickHandle,1000);
+		box.onmouseover = function () {
+			arr.style.display = "block";
+			clearInterval(timeId);
+		};
+		box.onmouseout = function () {
+			arr.style.display = "none";
+			timeId= setInterval(clickHandle,1000);
+		};
+		document.getElementById("right").onclick =clickHandle;
+		function clickHandle() {
+			if (pic == list.length - 1) {
+				pic = 0;
+				ulObj.style.left = 0 + "px";
+			}
+			pic++;
+			animate(ulObj, -pic * imgWidth);
+			if (pic == list.length - 1) {
+				olObj.children[olObj.children.length - 1].className = "";
+				olObj.children[0].className = "current";
+			} else {
+				for (var i = 0; i < olObj.children.length; i++) {
+					olObj.children[i].removeAttribute("class");
+				}
+				olObj.children[pic].className = "current";
+			}
+		};
+		document.getElementById("left").onclick = function () {
+			if (pic == 0) {
+				pic = 5;
+				ulObj.style.left = -pic * imgWidth + "px";
+			}
+			pic--;
+			animate(ulObj, -pic * imgWidth);
+			for (var i = 0; i < olObj.children.length; i++) {
+				olObj.children[i].removeAttribute("class");
+			}
+			olObj.children[pic].className = "current";
+		};
+		function animate(element, target) {
+			clearInterval(element.timeId);
+			element.timeId = setInterval(function () {
+				var current = element.offsetLeft;
+				var step = 10;
+				step = current < target ? step : -step;
+				current += step;
+				if (Math.abs(current - target) > Math.abs(step)) {
+					element.style.left = current + "px";
+				} else {
+					clearInterval(element.timeId);
+					element.style.left = target + "px";
+				}
+			}, 10);
+		}
+</script>
+
+</body>
+</html>
